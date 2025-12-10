@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="State" load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://addons/behavior_states/resources/components/state_component.gd" id="1_05jrx"]
+[ext_resource type="Script" path="res://addons/behavior_states/resources/state.gd" id="1_xdkp6"]
+[ext_resource type="Script" path="res://addons/behavior_states/resources/components/state/duration_component.gd" id="2_24lsi"]
+[ext_resource type="Script" path="res://addons/behavior_states/resources/components/state/cost_component.gd" id="3_5pbbb"]
+
+[sub_resource type="Resource" id="Resource_kjvlw"]
+script = ExtResource("2_24lsi")
+duration = 0.4
+
+[sub_resource type="Resource" id="Resource_7g3qo"]
+script = ExtResource("3_5pbbb")
+cost_type = 1
+cost_amount = 15.0
+
+[sub_resource type="Resource" id="Resource_05jrx"]
+script = ExtResource("2_24lsi")
+duration = 0.4
+
+[sub_resource type="Resource" id="Resource_24lsi"]
+script = ExtResource("3_5pbbb")
+cost_type = 1
+cost_amount = 15.0
+
+[sub_resource type="Resource" id="Resource_5pbbb"]
+script = ExtResource("2_24lsi")
+duration = 0.4
+
+[sub_resource type="Resource" id="Resource_ldtb1"]
+script = ExtResource("3_5pbbb")
+cost_type = 1
+cost_amount = 15.0
+
+[resource]
+script = ExtResource("1_xdkp6")
+name = "HyperDash"
+debug_color = Color(0, 0.2, 1, 1)
+entry_requirements = {
+"attack": 0,
+"effect": 0,
+"jump": 2,
+"motion": 4,
+"physics": 1,
+"status": 1
+}
+components = Array[ExtResource("1_05jrx")]([SubResource("Resource_kjvlw"), SubResource("Resource_7g3qo"), SubResource("Resource_05jrx"), SubResource("Resource_24lsi"), SubResource("Resource_5pbbb"), SubResource("Resource_ldtb1")])
+duration = 0.4
+cost_type = 1
+cost_amount = 15

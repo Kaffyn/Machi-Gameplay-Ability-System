@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="State" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/behavior_states/resources/state.gd" id="1_move_data"]
+
+[resource]
+script = ExtResource("1_move_data")
+name = "Bow Jump"
+debug_color = Color(0, 1, 1, 1)
+jump_force = 500.0
+entry_requirements = {
+"attack": 0,
+"effect": 0,
+"jump": 0,
+"motion": 5,
+"physics": 0,
+"status": 1
+}

@@ -1,0 +1,18 @@
+[configuration]
+
+entry_symbol = "mgas_library_init"
+compatibility_minimum = "4.2"
+
+[libraries]
+
+windows.debug.x86_64 = "res://addons/mgas/bin/libmgas.windows.template_debug.x86_64.dll"
+windows.release.x86_64 = "res://addons/mgas/bin/libmgas.windows.template_release.x86_64.dll"
+
+linux.debug.x86_64 = "res://addons/mgas/bin/libmgas.linux.template_debug.x86_64.so"
+linux.release.x86_64 = "res://addons/mgas/bin/libmgas.linux.template_release.x86_64.so"
+
+macos.debug = "res://addons/mgas/bin/libmgas.macos.template_debug.framework"
+macos.release = "res://addons/mgas/bin/libmgas.macos.template_release.framework"
+
+android.debug.arm64 = "res://addons/mgas/bin/libmgas.android.template_debug.arm64.so"
+android.release.arm64 = "res://addons/mgas/bin/libmgas.android.template_release.arm64.so"

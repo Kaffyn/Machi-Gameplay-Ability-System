@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="State" load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://addons/behavior_states/resources/components/state_component.gd" id="1_dwu4w"]
+[ext_resource type="Script" path="res://addons/behavior_states/resources/state.gd" id="1_move_data"]
+[ext_resource type="Script" path="res://addons/behavior_states/resources/components/state/duration_component.gd" id="2_kmv76"]
+[ext_resource type="Script" path="res://addons/behavior_states/resources/components/state/cost_component.gd" id="3_jl231"]
+
+[sub_resource type="Resource" id="Resource_ydwps"]
+script = ExtResource("2_kmv76")
+duration = 0.5
+
+[sub_resource type="Resource" id="Resource_fiyir"]
+script = ExtResource("3_jl231")
+cost_type = 1
+cost_amount = 10.0
+
+[sub_resource type="Resource" id="Resource_dwu4w"]
+script = ExtResource("2_kmv76")
+duration = 0.5
+
+[sub_resource type="Resource" id="Resource_kmv76"]
+script = ExtResource("3_jl231")
+cost_type = 1
+cost_amount = 10.0
+
+[sub_resource type="Resource" id="Resource_jl231"]
+script = ExtResource("2_kmv76")
+duration = 0.5
+
+[sub_resource type="Resource" id="Resource_iw635"]
+script = ExtResource("3_jl231")
+cost_type = 1
+cost_amount = 10.0
+
+[resource]
+script = ExtResource("1_move_data")
+name = "Dash"
+debug_color = Color(0.4, 0.4, 0.8, 1)
+entry_requirements = {
+"attack": 0,
+"effect": 0,
+"jump": 0,
+"motion": 4,
+"physics": 6,
+"status": 0
+}
+components = Array[ExtResource("1_dwu4w")]([SubResource("Resource_ydwps"), SubResource("Resource_fiyir"), SubResource("Resource_dwu4w"), SubResource("Resource_kmv76"), SubResource("Resource_jl231"), SubResource("Resource_iw635")])
+duration = 0.5
+cost_type = 1
+cost_amount = 10
