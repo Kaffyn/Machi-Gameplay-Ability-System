@@ -1,0 +1,6 @@
+[gd_resource type="MachiGameplayEffect" format=3]
+
+[resource]
+granted_tags = Object(RefCounted,"script":null)
+
+resource_name = "GE_Item_Bow"

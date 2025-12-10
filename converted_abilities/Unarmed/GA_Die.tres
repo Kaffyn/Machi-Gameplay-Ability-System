@@ -1,0 +1,4 @@
+[gd_resource type="MachiGameplayAbility" format=3]
+
+[resource]
+resource_name = "GA_Unarmed_Die"
