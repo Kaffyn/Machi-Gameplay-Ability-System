@@ -1,0 +1,131 @@
+name: Build MBT GDExtension
+
+on:
+  push:
+    paths:
+      - "addons/mbt/**"
+      - ".github/workflows/build_mbt.yml"
+  pull_request:
+    paths:
+      - "addons/mbt/**"
+
+env:
+  LIBNAME: mbt
+
+jobs:
+  build:
+    name: Build ${{ matrix.platform }} (${{ matrix.target }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: windows
+            os: windows-latest
+            target: template_debug
+            suffix: .debug
+          - platform: windows
+            os: windows-latest
+            target: template_release
+            suffix: .release
+          - platform: linux
+            os: ubuntu-latest
+            target: template_debug
+            suffix: .debug
+          - platform: linux
+            os: ubuntu-latest
+            target: template_release
+            suffix: .release
+          - platform: macos
+            os: macos-latest
+            target: template_debug
+            suffix: .debug
+          - platform: macos
+            os: macos-latest
+            target: template_release
+            suffix: .release
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install SCons
+        run: |
+          pip install scons
+
+      - name: Compile GDExtension
+        working-directory: addons/mbt
+        run: |
+          scons platform=${{ matrix.platform }} target=${{ matrix.target }}
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.LIBNAME }}.${{ matrix.platform }}${{ matrix.suffix }}
+          path: addons/mbt/bin/
+
+  build-android:
+    name: Build Android (${{ matrix.arch }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: arm64
+            target: template_debug
+            suffix: .debug
+          - arch: arm64
+            target: template_release
+            suffix: .release
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install SCons
+        run: |
+          pip install scons
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Set up Android NDK
+        uses: nttld/setup-ndk@v1
+        id: setup-ndk
+        with:
+          ndk-version: r23c
+          link-to-sdk: true
+
+      - name: Compile Android
+        working-directory: addons/mbt
+        env:
+          ANDROID_HOME: ${{ steps.setup-ndk.outputs.android-sdk-root }}
+          ANDROID_NDK_ROOT: ${{ steps.setup-ndk.outputs.ndk-path }}
+        run: |
+          scons platform=android target=${{ matrix.target }} android_arch=${{ matrix.arch }}
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.LIBNAME }}.android.${{ matrix.arch }}${{ matrix.suffix }}
+          path: addons/mbt/bin/
