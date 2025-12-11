@@ -10,10 +10,6 @@
 #include "machi_gameplay_ability.h"
 #include "machi_attribute_set.h"
 #include "machi_gameplay_effect.h"
-#include "mbt_task.h"
-#include "mbt_behavior_tree.h"
-#include "mbt_player.h"
-#include "mbt_blackboard.h"
 
 using namespace godot;
 
@@ -26,11 +22,6 @@ void initialize_mgas_module(ModuleInitializationLevel p_level) {
     ClassDB::register_class<MachiGameplayAbility>();
     ClassDB::register_class<MachiGameplayEffect>();
     ClassDB::register_class<MachiAttributeSet>();
-
-    ClassDB::register_class<MBTTask>();
-    ClassDB::register_class<MBTBehaviorTree>();
-    ClassDB::register_class<MBTPlayer>();
-    ClassDB::register_class<MBTBlackboard>();
 }
 
 void uninitialize_mgas_module(ModuleInitializationLevel p_level) {

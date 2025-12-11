@@ -1,0 +1,15 @@
+[configuration]
+
+entry_symbol = "mbt_library_init"
+compatibility_minimum = "4.1"
+
+[libraries]
+
+macos.debug = "res://addons/mbt/bin/libmbt.macos.template_debug.framework/libmbt.macos.template_debug"
+macos.release = "res://addons/mbt/bin/libmbt.macos.template_release.framework/libmbt.macos.template_release"
+windows.debug.x86_64 = "res://addons/mbt/bin/libmbt.windows.template_debug.x86_64.dll"
+windows.release.x86_64 = "res://addons/mbt/bin/libmbt.windows.template_release.x86_64.dll"
+linux.debug.x86_64 = "res://addons/mbt/bin/libmbt.linux.template_debug.x86_64.so"
+linux.release.x86_64 = "res://addons/mbt/bin/libmbt.linux.template_release.x86_64.so"
+android.debug.arm64 = "res://addons/mbt/bin/libmbt.android.template_debug.arm64.so"
+android.release.arm64 = "res://addons/mbt/bin/libmbt.android.template_release.arm64.so"

@@ -10,7 +10,7 @@ on:
       - "addons/mbt/**"
 
 env:
-  LIBNAME: mbt
+  LIBNAME: libmbt
 
 jobs:
   build:
