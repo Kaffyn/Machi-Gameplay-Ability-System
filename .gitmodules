@@ -2,3 +2,7 @@
 	path = addons/mgas/godot-cpp
 	url = https://github.com/godotengine/godot-cpp
 	branch = 4.5
+[submodule "addons/limboai"]
+	path = addons/limboai
+	url = https://github.com/limbonaut/limboai.git
+	branch = release/1.5.2
