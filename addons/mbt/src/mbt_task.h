@@ -23,7 +23,12 @@ public:
     MBTTask();
     ~MBTTask();
 
-    // Virtual methods for GDScript and C++ subclasses
+    // GDScript Virtual Methods
+    GDVIRTUAL0(_enter)
+    GDVIRTUAL0(_exit)
+    GDVIRTUAL1R(int, _tick, double)
+
+    // Virtual methods for C++ subclasses (Fallback/Default impl)
     virtual void _enter();
     virtual void _exit();
     virtual int _tick(double p_delta);

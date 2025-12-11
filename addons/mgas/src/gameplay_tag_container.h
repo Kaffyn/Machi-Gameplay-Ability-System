@@ -1,6 +1,7 @@
 #ifndef GAMEPLAY_TAG_CONTAINER_H
 #define GAMEPLAY_TAG_CONTAINER_H
 
+#include <cstdint>
 #include <godot_cpp/variant/string_name.hpp>
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/variant/array.hpp>
